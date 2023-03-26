@@ -100,7 +100,7 @@ class GPTTalker:
 
 
 if __name__ == "__main__":
-    with open(r"C:\Users\86188\Documents\GitHub\DkgBot\resource\key.txt","r") as f:
+    with open(r"/_key.txt", "r") as f:
         key = f.read()
     a = GPTTalker([key], "gpt-3.5-turbo")
     a.talkWithGPT([{'role': 'user', 'content': '我正在测试api是否调用正常,请回答：“你好”'}])
