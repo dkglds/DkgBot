@@ -1,2 +1,4 @@
-class OpenAIError(BaseException):
+""" doc """
+class OpenAIError(Exception):
+    """ doc """
     pass

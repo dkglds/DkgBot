@@ -1,26 +1,30 @@
+""" doc """
 from flask import Flask, request
 from QQBotTools.QQBot import QQBot
 
 
-class Server:
+class Server(object):
+    """ doc """
     def __init__(self):
         self.app = Flask(__name__)
-        self.qqBot = QQBot(self.app)
+        self.qq_bot = QQBot(self.app)
 
-        self._registerRoutes()
+        self._register_routes()
 
-    def _registerRoutes(self):
-        self._helloWorld()
-        self._helloWorld2()
+    def _register_routes(self):
+        self._hello_world()
+        self._hello_world2()
 
-    def _helloWorld(self):
+    def _hello_world(self):
         @self.app.route('/', methods=["GET"])
-        def _helloWorld():
+        def _hello_world():
+            """ doc """
             return "Hello World"
 
-    def _helloWorld2(self):
+    def _hello_world2(self):
         @self.app.route('/2', methods=["GET"])
-        def _helloWorld2():
+        def _hello_world2():
+            """ doc """
             return "Hello World2"
 
 

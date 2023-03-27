@@ -1,39 +1,41 @@
+""" doc """
 import time
 
 from flask import request
 from threading import Thread
+from QQBotTools.IntegratedInformationProcessingTool import IntegratedInformationProcessingTool
+from QQBotTools.FunctionTools.SessionTools import SessionTools
 
 
-class QQBot:
-    def __init__(self, server):
+class QQBot(object):
+    """ doc """
+    def __init__(self, server, processing_tool=IntegratedInformationProcessingTool):
         self.server = server
-        self.messageQueue = list()
-        self.informationProcessingThread = Thread(target=self.informationProcessingThreadWork)
-        self._registerRoutes()
-        self._activeThread()
+        self.message_queue = list()
+        self.session_tool = SessionTools()
+        self.integrated_information_processing_tool = processing_tool(self.session_tool)
+        self.information_processing_thread = Thread(target=self.information_processing_thread_work)
+        self._register_routes()
+        self._active_thread()
 
-    def _activeThread(self):
+    def _active_thread(self):
         print("线程启动")
-        self.informationProcessingThread.start()
+        self.information_processing_thread.start()
 
-    def informationProcessingThreadWork(self):
+    def information_processing_thread_work(self):
         while True:
-            if len(self.messageQueue) == 0:
+            if len(self.message_queue) == 0:
                 time.sleep(0.05)
                 continue
-            self._IntegratedInformationProcessing(self.messageQueue.pop(0))
+            print(self.integrated_information_processing_tool.processing(self.message_queue.pop(0)))
 
-    def _IntegratedInformationProcessing(self,message):
-        print(message)
-        pass
+    def _register_routes(self):
+        self.info_getting_server()
 
-    def _registerRoutes(self):
-        self.infoGetingServer()
-        pass
-
-    def infoGetingServer(self):
+    def info_getting_server(self):
         @self.server.route('/', methods=["POST"])
-        def infoGetingServer():
-            self.messageQueue.append(request.get_json())
-            #print(self.messageQueue)
+        def info_getting_server():
+            """ doc """
+            self.message_queue.append(request.get_json())
+            # print(self.messageQueue)
             return "ok"
