@@ -1,0 +1,27 @@
+[2023-03-26 21:05:41] [WARNING]: 虚拟设备信息不存在, 将自动生成随机设备. 
+[2023-03-26 21:05:57] [ERROR]: 获取T544时出现问题: Post "https://captcha.go-cqhttp.org/sdk/dandelion/energy": context deadline exceeded (Client.Timeout exceeded while awaiting headers) 
+[2023-03-26 21:05:57] [WARNING]: 登录失败: 登录失败，建议升级最新版本后重试，或通过问题反馈与我们联系。 Code: 45 
+[2023-03-26 21:06:14] [WARNING]: 检查协议更新失败: Get "https://ghproxy.com/https://raw.githubusercontent.com/RomiChan/protocol-versions/master/android_pad.json": context deadline exceeded (Client.Timeout exceeded while awaiting headers) 
+[2023-03-26 21:06:19] [ERROR]: 获取T544时出现问题: Post "https://captcha.go-cqhttp.org/sdk/dandelion/energy": context deadline exceeded (Client.Timeout exceeded while awaiting headers) 
+[2023-03-26 21:06:19] [WARNING]: 登录失败: 登录失败，建议升级最新版本后重试，或通过问题反馈与我们联系。 Code: 45 
+[2023-03-26 21:07:55] [WARNING]: 登录失败: 登录失败，建议升级最新版本后重试，或通过问题反馈与我们联系。 Code: 45 
+[2023-03-26 21:09:17] [ERROR]: 获取T544时出现问题: Post "https://captcha.go-cqhttp.org/sdk/dandelion/energy": context deadline exceeded (Client.Timeout exceeded while awaiting headers) 
+[2023-03-26 21:09:17] [WARNING]: 登录失败: 请使用手Q扫描二维码或短信登录。 Code: 238 
+[2023-03-26 21:09:49] [WARNING]: 登录失败: 请使用手Q扫描二维码或短信登录。 Code: 238 
+[2023-03-26 21:10:11] [WARNING]: 账号密码未配置, 将使用二维码登录. 
+[2023-03-26 21:10:11] [WARNING]: 将在 5秒 后继续. 
+[2023-03-26 21:10:35] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-26 21:10:35] [ERROR]: Protocol -> parse incoming packet error: return code unsuccessful: -10004 
+[2023-03-26 21:10:38] [ERROR]: Protocol -> parse incoming packet error: return code unsuccessful: -10004 
+[2023-03-26 21:10:38] [ERROR]: Protocol -> parse incoming packet error: return code unsuccessful: -10004 
+[2023-03-26 21:10:38] [ERROR]: Protocol -> parse incoming packet error: return code unsuccessful: -10004 
+[2023-03-26 21:11:48] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-26 21:16:04] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-26 21:18:58] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-26 21:20:27] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-26 21:22:11] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-26 21:24:27] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-26 21:26:25] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-26 21:28:23] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-26 21:28:31] [ERROR]: init filter error: open filtter.json: The system cannot find the file specified. 
+[2023-03-26 21:29:07] [WARNING]: Protocol -> device lock is disable. http api may fail. 

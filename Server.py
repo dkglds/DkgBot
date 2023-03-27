@@ -1,13 +1,15 @@
-from flask import Flask
+from flask import Flask, request
+from QQBotTools.QQBot import QQBot
 
 
 class Server:
     def __init__(self):
         self.app = Flask(__name__)
+        self.qqBot = QQBot(self.app)
 
-        self._register_routes()
+        self._registerRoutes()
 
-    def _register_routes(self):
+    def _registerRoutes(self):
         self._helloWorld()
         self._helloWorld2()
 
@@ -22,7 +24,6 @@ class Server:
             return "Hello World2"
 
 
-
 if __name__ == "__main__":
     server = Server()
-    server.app.run()
+    server.app.run(port=5555, host="0.0.0.0")
