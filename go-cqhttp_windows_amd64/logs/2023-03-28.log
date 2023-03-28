@@ -1078,3 +1078,11 @@
  到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
 [2023-03-28 17:56:44] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1679997402,"self_id":1252536626,"sub_type":"approve","group_id":535518015,"operator_id":0,"user_id":2583299317}
  到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-28 17:57:45] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1679997463,"self_id":1252536626,"sub_type":"approve","group_id":755350401,"operator_id":0,"user_id":3047272770}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-28 17:57:47] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1679997465,"self_id":1252536626,"sub_type":"approve","group_id":535518015,"operator_id":0,"user_id":2375378603}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-28 17:58:24] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_decrease","time":1679997502,"self_id":1252536626,"sub_type":"leave","group_id":535518015,"operator_id":2375378603,"user_id":2375378603}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-28 17:59:23] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1679997561,"self_id":1252536626,"sub_type":"approve","operator_id":0,"user_id":2387948916,"group_id":535518015}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
