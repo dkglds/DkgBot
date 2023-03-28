@@ -1,11 +1,13 @@
 """ doc """
 import Const
-from QQBotTools.InstructionProcessingTool import InstructionProcessingTool
+from QQBotTools.ClassTools.InstructionProcessingTool import InstructionProcessingTool
 from QQBotTools.FunctionTools.ChatMessageTools import ChatMessageTools
+from QQBotTools.ClassTools.InformationSender import InformationSender
 
 
 class IntegratedInformationProcessingTool(object):
     """ doc """
+
     def __init__(self, session_tool):
         self.session_tool = session_tool
         self.instruction_processing_tool = InstructionProcessingTool(session_tool)
@@ -34,6 +36,7 @@ class IntegratedInformationProcessingTool(object):
             session = self.session_tool.get_chat_session("P" + str(self.uid))
             if self.instruction_processing_tool.process_instruction(message_json) == Const.SUCCESS:
                 return self.instruction_processing_tool.return_str
-            else:
-                return ChatMessageTools.chat_with_gpt(self.message, session)
+            return_message = ChatMessageTools.chat_with_gpt(self.message, session)
+            InformationSender.send_private_message(self.uid, return_message, False)
+            return return_message
         return "1"
