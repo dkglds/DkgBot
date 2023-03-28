@@ -6,7 +6,6 @@ from QQBotTools.FunctionTools.ChatMessageTools import ChatMessageTools
 
 class IntegratedInformationProcessingTool(object):
     """ doc """
-
     def __init__(self, session_tool):
         self.session_tool = session_tool
         self.instruction_processing_tool = InstructionProcessingTool(session_tool)
@@ -34,13 +33,7 @@ class IntegratedInformationProcessingTool(object):
             print(self.message)
             session = self.session_tool.get_chat_session("P" + str(self.uid))
             if self.instruction_processing_tool.process_instruction(message_json) == Const.SUCCESS:
-                return ""
+                return self.instruction_processing_tool.return_str
             else:
                 return ChatMessageTools.chat_with_gpt(self.message, session)
-        return ""
-'''
-        print(self.uid)
-        print(self.sender)
-        print(self.message_type)
-        print(self.message)
-'''
+        return "1"

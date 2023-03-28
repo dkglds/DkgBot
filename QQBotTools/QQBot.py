@@ -9,9 +9,11 @@ from QQBotTools.FunctionTools.SessionTools import SessionTools
 
 class QQBot(object):
     """ doc """
+
     def __init__(self, server, processing_tool=IntegratedInformationProcessingTool):
         self.server = server
-        self.message_queue = list()
+        self.get_message_queue = list()
+        self.send_message_queue = list()
         self.session_tool = SessionTools()
         self.integrated_information_processing_tool = processing_tool(self.session_tool)
         self.information_processing_thread = Thread(target=self.information_processing_thread_work)
@@ -24,10 +26,10 @@ class QQBot(object):
 
     def information_processing_thread_work(self):
         while True:
-            if len(self.message_queue) == 0:
+            if len(self.get_message_queue) == 0:
                 time.sleep(0.05)
                 continue
-            print(self.integrated_information_processing_tool.processing(self.message_queue.pop(0)))
+            print(self.integrated_information_processing_tool.processing(self.get_message_queue.pop(0)))
 
     def _register_routes(self):
         self.info_getting_server()
@@ -36,6 +38,6 @@ class QQBot(object):
         @self.server.route('/', methods=["POST"])
         def info_getting_server():
             """ doc """
-            self.message_queue.append(request.get_json())
+            self.get_message_queue.append(request.get_json())
             # print(self.messageQueue)
             return "ok"

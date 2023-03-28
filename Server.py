@@ -5,7 +5,8 @@ from QQBotTools.QQBot import QQBot
 
 class Server(object):
     """ doc """
-    def __init__(self):
+
+    def __init__(self, config_path):
         self.app = Flask(__name__)
         self.qq_bot = QQBot(self.app)
 

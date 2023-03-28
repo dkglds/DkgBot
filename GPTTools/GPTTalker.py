@@ -19,7 +19,7 @@ class GPTTalker(object):
         """
         self.api_keys_list = apl_keys_list
         self.model = model
-        self.max_len = len(apl_keys_list)
+        self.max_key_list_len = len(apl_keys_list)
         self.current_key = 0
         self.return_str = str()
 
@@ -31,7 +31,7 @@ class GPTTalker(object):
         if not self.api_keys_list:
             self.return_str = "请设置Api Key"
             return Const.FAILING
-        elif self.current_key > self.max_len:
+        elif self.current_key > self.max_key_list_len:
             self.current_key = 0
             self.return_str = "全部Key均已达到速率限制,请等待一分钟后再尝试"
             return Const.FAILING
