@@ -19,6 +19,7 @@
     },
     "qq_bot": {
         "qq_no": "换成你自己QQ机器人的QQ号",
+        "cqhttp_port": 5555,
         "cqhttp_url": "http://localhost:8600",
         "max_length": 9999,
         "image_path": "../QBot/data/images",
@@ -30,7 +31,7 @@
     "text_to_image": {
         "font_size": 30,
         "width": 700,
-        "font_path": "fonts/sarasa-mono-sc-regular.ttf",
+        "font_path": "ExternalModuleAndResource/resource/fonts/sarasa-mono-sc-regular.ttf",
         "offset_x": 50,
         "offset_y": 50
     },
