@@ -11,14 +11,15 @@
         "echo": false,
         "presence_penalty": 0,
         "frequency_penalty": 0,
-        "preset": "你是我的人工智能助手，名字叫小猪"
+        "roles": "resource/roles.json",
+        "preset": 1
     },
     "new_bing": {
         "cookie_path": "cookies.json",
         "conversation_style": "galileo"
     },
     "qq_bot": {
-        "qq_no": "换成你自己QQ机器人的QQ号",
+        "qq_no": "你的QQ号",
         "cqhttp_port": 5555,
         "cqhttp_url": "http://localhost:8600",
         "max_length": 9999,
@@ -26,7 +27,8 @@
         "voice_path": "存放生成的音频文件的路径，填绝对路径",
         "voice": "zh-CN-XiaoyiNeural",
         "auto_confirm": false,
-        "admin_qq": "你自己的qq号"
+        "admin_qq": ["管理员账号"],
+        "serve_groups": ["支持的群号1", "支持的群号2", "支持的群号3"]
     },
     "text_to_image": {
         "font_size": 30,
