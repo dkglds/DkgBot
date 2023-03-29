@@ -1,5 +1,6 @@
 """ session工具类 """
 from copy import deepcopy
+from Config import CONFIG
 
 
 class SessionTools(object):
@@ -16,7 +17,7 @@ class SessionTools(object):
         # session格式模板
         self.session_config = {
             'msg': [
-                {"role": "system", "content": "待补充字符串"}
+                {"role": "system", "content": CONFIG["chatgpt"]["preset"]}
             ]
         }
 

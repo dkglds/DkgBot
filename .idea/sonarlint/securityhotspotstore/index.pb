@@ -11,8 +11,6 @@ R
 "go-cqhttp_windows_amd64/.gitignore,9\9\999f528e8ce3ae072fe4f42e4838b75d2197ce22
 S
 #GPTTools/MyOpenAi/ChatCompletion.py,a\c\ac8345bc222b2141e3e9fd8bd58f2c1ebf2cba5c
-M
-resource/cookies_example.json,1\8\18d9005f7465763e989f77523c5d3c23a5b2ea43
 8
 __init__,1\9\1939f247b3ae06244a8d50fa7dabbcc975c6fc4c
 D
