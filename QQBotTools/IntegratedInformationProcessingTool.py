@@ -89,3 +89,4 @@ class IntegratedInformationProcessingTool(object):
                 return_message = ""
             InformationSender.send_group_message(gid, return_message, self.uid, False)
         return return_message
+    
