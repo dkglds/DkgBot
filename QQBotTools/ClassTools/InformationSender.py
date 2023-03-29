@@ -43,6 +43,8 @@ class InformationSender(object):
         :param send_voice: 是否发送语音
         :return: 将消息发送信息通过http协议传递给go-cphttp
         """
+        if message == "":
+            return
         try:
             if send_voice:  # 如果开启了语音发送
                 voice_path = asyncio.run(
@@ -100,6 +102,8 @@ class InformationSender(object):
         :param send_voice: 是否发送语音
         :return: 将消息发送信息通过http协议传递给go-cphttp
         """
+        if message == "":
+            return
         try:
             if send_voice:  # 如果开启了语音发送
                 voice_path = asyncio.run(
@@ -108,7 +112,7 @@ class InformationSender(object):
             if len(message) >= cls.max_length and not send_voice:  # 如果消息长度超过限制，转成图片发送
                 pic_path = cls.gen_img(message)
                 message = CQTools.cq_image_str(pic_path)
-            if not send_voice:
+            if not send_voice and uid is not None:
                 message = str('[CQ:at,qq=%s]\n' % uid) + message  # @发言人
             res = requests.post(url=cls.cqhttp_url + "/send_group_msg",
                                 params={'group_id': int(gid), 'message': message}).json()

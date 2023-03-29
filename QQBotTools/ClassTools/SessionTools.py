@@ -1,6 +1,8 @@
 """ session工具类 """
+import time
 from copy import deepcopy
 from Config.Roles import ROLES
+from Config.Config import CONFIG
 
 
 class SessionTools(object):
@@ -15,9 +17,14 @@ class SessionTools(object):
             sessions = dict()
         self.sessions = sessions
         # session格式模板
+        self.session_config = dict()
+
+    def reset_session_config(self):
         self.session_config = {
-            'msg': ROLES[0],
-            'role': 0
+            'msg': ROLES[CONFIG["chatgpt"]["preset"]],
+            'role': CONFIG["chatgpt"]["preset"],
+            'last': 0,
+            'id': "0"
         }
 
     def get_chat_session(self, session_id):
@@ -27,7 +34,9 @@ class SessionTools(object):
         :return: 给定id对应的session
         """
         if session_id not in self.sessions:
+            self.reset_session_config()
             config = deepcopy(self.session_config)
+            config['last'] = time.time()
             config['id'] = session_id
             self.sessions[session_id] = config
         return self.sessions[session_id]

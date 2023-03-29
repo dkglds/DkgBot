@@ -14,6 +14,7 @@ class InstructionProcessingTool(object):
         :param session_tool: 待获取的session
         """
         self.session_tool = session_tool
+        self.admin_list = CONFIG["qq_bot"]["admin_qq"]
         self.sender = None
         self.uid = None
         self.message = None
@@ -34,6 +35,9 @@ class InstructionProcessingTool(object):
         if "#" == self.message.strip()[0]:
             message = self.message.replace("#", "", 1)
             if hasattr(self, message.split("(")[0]):
+                if self.message_type == "group" and self.uid not in self.admin_list:
+                    self.return_str = "权限不足！"
+                    return Const.SUCCESS
                 #exec("self." + message)
                 try:
                     if message[-1] != ")":

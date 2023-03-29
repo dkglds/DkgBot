@@ -36,6 +36,24 @@ class ChatMessageTools(object):
         # print(session['msg'])
         return message
 
+    @classmethod
+    def chat_with_gpt_by_new_log(cls, session):
+        """
+        清空消息记忆并且发起一个新话题
+        :param session: 用户的session
+        :return: GPT回复的信息
+        """
+        session['msg'][1] = {"role": "user", "content": "current time:" + get_bj_time()}
+        session['msg'] = session["msg"][0:4]
+        session["msg"].append({"role": "system", "content": "随便说点"})
+        # 与ChatGPT交互获得对话内容
+        cls.talker.talk_with_gpt(session["msg"])
+        message = cls.talker.return_str
+        # 记录上下文
+        session['msg'].append({"role": "assistant", "content": message})
+        # print(session['msg'])
+        return message
+
     @staticmethod
     def num_tokens_from_messages(messages, model="gpt-3.5-turbo"):
         """
