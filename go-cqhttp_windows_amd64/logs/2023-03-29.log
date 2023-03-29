@@ -12,3 +12,17 @@
  到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
 [2023-03-29 11:00:23] [WARNING]: 上报 Event 数据 {"post_type":"message","message_type":"group","time":1680058822,"self_id":1252536626,"sub_type":"normal","raw_message":"[CQ:reply,id=2064889502][CQ:at,qq=1198463611] 【年级大会】请同学们今天下午【提前10分钟】到【逸夫楼102】。[CQ:at,qq=all] ","sender":{"age":0,"area":"","card":"辅导员荆楠","level":"","nickname":"JINGJ","role":"owner","sex":"unknown","title":"","user_id":1198463611},"message_id":-222848434,"message_seq":3719,"font":0,"group_id":1124483437,"message":"[CQ:reply,id=2064889502][CQ:at,qq=1198463611] 【年级大会】请同学们今天下午【提前10分钟】到【逸夫楼102】。[CQ:at,qq=all] ","user_id":1198463611,"anonymous":null}
  到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-29 13:57:04] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-29 13:57:14] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 
+[2023-03-29 13:59:20] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1680069558,"self_id":1252536626,"sub_type":"approve","group_id":535518015,"operator_id":0,"user_id":1085564766}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-29 13:59:56] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1680069594,"self_id":1252536626,"sub_type":"approve","group_id":755350401,"operator_id":0,"user_id":1148571219}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-29 14:02:44] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1680069762,"self_id":1252536626,"sub_type":"approve","group_id":535518015,"operator_id":0,"user_id":1072780461}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-29 14:03:55] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1680069833,"self_id":1252536626,"sub_type":"approve","group_id":535518015,"operator_id":0,"user_id":1412269928}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-29 14:10:51] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1680070251,"self_id":1252536626,"sub_type":"approve","group_id":535518015,"operator_id":0,"user_id":1990194512}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": read tcp 127.0.0.1:59716->127.0.0.1:5555: wsarecv: An existing connection was forcibly closed by the remote host. 停止上报：已达重试上限 
+[2023-03-29 14:15:37] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1680070534,"self_id":1252536626,"sub_type":"approve","operator_id":0,"user_id":405655754,"group_id":535518015}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 

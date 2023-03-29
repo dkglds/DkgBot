@@ -1,7 +1,7 @@
 """ 主函数、服务启动配置 """
-import Const
 from Server import Server
-from Config import CONFIG
+from Config import Const
+from Config.Config import CONFIG
 
 server = Server()
 app = server.app

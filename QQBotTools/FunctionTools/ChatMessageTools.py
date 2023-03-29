@@ -1,7 +1,8 @@
 """ GPT信息传递类方法集合 """
 import tiktoken
 from GPTTools.GPTTalker import GPTTalker
-from Config import CONFIG
+from Config.Config import CONFIG
+from QQBotTools.FunctionTools.OtherTools import get_bj_time
 
 
 class ChatMessageTools(object):
@@ -17,11 +18,12 @@ class ChatMessageTools(object):
         :param session: 用户的session
         :return: GPT回复的信息
         """
+        session['msg'][1] = {"role": "user", "content": "current time:" + get_bj_time()}
         session['msg'].append({"role": "user", "content": message})
         # 检查是否超过tokens限制
         while cls.num_tokens_from_messages(session['msg']) > 3000:
             # 当超过记忆保存最大量时，清理一条
-            del session['msg'][2:3]
+            session['msg'].pop(4)
         # 与ChatGPT交互获得对话内容
         cls.talker.talk_with_gpt(session['msg'])
         message = cls.talker.return_str

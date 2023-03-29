@@ -5,7 +5,7 @@ import asyncio
 import requests
 import QQBotTools.FunctionTools.CQTools as CQTools
 
-from Config import CONFIG
+from Config.Config import CONFIG
 from ExternalModuleAndResource.text_to_speech import gen_speech
 from ExternalModuleAndResource.text_to_image import text_to_image
 

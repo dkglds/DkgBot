@@ -1,7 +1,7 @@
 """ GPTTaker类 """
 #import GPTTools.MyOpenAi as openai
 import openai
-import Const
+from Config import Const
 
 
 class GPTTalker(object):

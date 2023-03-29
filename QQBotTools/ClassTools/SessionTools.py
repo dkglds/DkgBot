@@ -1,6 +1,6 @@
 """ session工具类 """
 from copy import deepcopy
-from Config import CONFIG
+from Config.Roles import ROLES
 
 
 class SessionTools(object):
@@ -16,9 +16,8 @@ class SessionTools(object):
         self.sessions = sessions
         # session格式模板
         self.session_config = {
-            'msg': [
-                {"role": "system", "content": CONFIG["chatgpt"]["preset"]}
-            ]
+            'msg': ROLES[0],
+            'role': 0
         }
 
     def get_chat_session(self, session_id):
