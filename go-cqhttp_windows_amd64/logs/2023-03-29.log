@@ -1,0 +1,6 @@
+[2023-03-29 10:54:25] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-29 10:54:35] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 
+[2023-03-29 10:54:52] [WARNING]: 上报 Event 数据 {"post_type":"message","message_type":"group","time":1680058491,"self_id":1252536626,"sub_type":"normal","group_id":146954704,"raw_message":"[CQ:at,qq=1252536626] \n请问你想咨询的领域是什么呢？我可以帮你回答关于计算机、数学、自然科学、文化等领域的问题。","sender":{"age":0,"area":"","card":"","level":"","nickname":"❤️艾米❤️","role":"member","sex":"unknown","title":"","user_id":2741484590},"user_id":2741484590,"anonymous":null,"font":0,"message":"[CQ:at,qq=1252536626] \n请问你想咨询的领域是什么呢？我可以帮你回答关于计算机、数学、自然科学、文化等领域的问题。","message_seq":4710,"message_id":1252958118}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-29 10:57:06] [WARNING]: 上报 Event 数据 {"post_type":"notice","notice_type":"group_increase","time":1680058624,"self_id":1252536626,"sub_type":"approve","group_id":535518015,"operator_id":0,"user_id":2663457359}
+ 到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 

@@ -1,4 +1,4 @@
-""" doc """
+""" 常量 """
 SUCCESS = True
 FAILING = False
 JSON_PATH = "resource/config.json"

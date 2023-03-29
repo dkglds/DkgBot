@@ -1,6 +1,6 @@
-""" doc """
-import GPTTools.MyOpenAi as openai
-#import openai
+""" GPTTaker类 """
+#import GPTTools.MyOpenAi as openai
+import openai
 import Const
 
 

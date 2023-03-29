@@ -1,7 +1,14 @@
+""" 使用stable_diffusion绘画的模块 """
 import replicate
 
 
 def get_stable_diffusion_img(json,api_token):
+    """
+    调用api从stable_diffusion获取图片
+    :param json: 绘画参数
+    :param api_token: api令牌
+    :return: 图片
+    """
     model = replicate.Client(api_token=api_token).models.get(
         "stability-ai/stable-diffusion")
     version = model.versions.get("db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf")

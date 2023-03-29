@@ -1,14 +1,10 @@
-""" doc """
+""" 主函数、服务启动配置 """
 import Const
 from Server import Server
 from Config import CONFIG
 
-server = Server("resource/config.json")
+server = Server()
 app = server.app
 
 if __name__ == '__main__':
-    '''
-    for i in CONFIG:
-        print(CONFIG[i])
-    #'''
-    app.run(port=CONFIG["qqbot"]["cqhttp_port"], host=Const.HTTP_INFO_GET_IP)
+    app.run(port=CONFIG["qq_bot"]["cqhttp_port"], host=Const.HTTP_INFO_GET_IP)

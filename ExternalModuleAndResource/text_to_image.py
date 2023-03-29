@@ -1,3 +1,4 @@
+""" 文字转图片模块 """
 from PIL import Image, ImageDraw, ImageFont
 import textwrap
 import itertools

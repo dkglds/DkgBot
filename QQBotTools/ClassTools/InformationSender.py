@@ -1,4 +1,4 @@
-""" doc """
+""" 信息发送器类 """
 import os
 import uuid
 import asyncio
@@ -11,7 +11,7 @@ from ExternalModuleAndResource.text_to_image import text_to_image
 
 
 class InformationSender(object):
-    """ doc """
+    """ 信息发送器类，拥有4个发送方法应对私聊、群聊的文字和图片发送 """
     image_path = CONFIG['qq_bot']['image_path']
     voice = CONFIG['qq_bot']['voice']
     voice_path = CONFIG['qq_bot']['voice_path']
@@ -21,6 +21,11 @@ class InformationSender(object):
     # 生成图片
     @classmethod
     def gen_img(cls, message):
+        """
+        文字转图片，调用外部库进行转换
+        :param message: 待转换文字字符
+        :return: 转换后的文件名
+        """
         img = text_to_image(message)
         filename = str(uuid.uuid1()) + ".png"
         filepath = cls.image_path + str(os.path.sep) + filename
@@ -31,6 +36,13 @@ class InformationSender(object):
     # 发送私聊消息方法 uid为qq号，message为消息内容
     @classmethod
     def send_private_message(cls, uid, message, send_voice):
+        """
+        发送私聊消息
+        :param uid: 目标QQ号
+        :param message: 待发送消息
+        :param send_voice: 是否发送语音
+        :return: 将消息发送信息通过http协议传递给go-cphttp
+        """
         try:
             if send_voice:  # 如果开启了语音发送
                 voice_path = asyncio.run(
@@ -54,6 +66,13 @@ class InformationSender(object):
     # 发送私聊消息方法 uid为qq号，pic_path为图片地址
     @classmethod
     def send_private_message_image(cls, uid, pic_path, msg):
+        """
+        发送私聊图片
+        :param uid: 目标QQ号
+        :param pic_path: 图片路径
+        :param msg: 补充消息
+        :return: 将消息写为cq码发送信息通过http协议传递给go-cphttp
+        """
         try:
             message = CQTools.cq_image_str(pic_path)
             if msg != "":
@@ -73,6 +92,14 @@ class InformationSender(object):
     # 发送群消息方法
     @classmethod
     def send_group_message(cls, gid, message, uid, send_voice):
+        """
+        发送群聊消息
+        :param gid: 目标群号
+        :param message: 待发送消息
+        :param uid: 目标QQ号
+        :param send_voice: 是否发送语音
+        :return: 将消息发送信息通过http协议传递给go-cphttp
+        """
         try:
             if send_voice:  # 如果开启了语音发送
                 voice_path = asyncio.run(
@@ -96,6 +123,14 @@ class InformationSender(object):
     # 发送群消息图片方法
     @classmethod
     def send_group_message_image(cls, gid, pic_path, uid, msg):
+        """
+        发送群聊图片
+        :param gid: 目标群号
+        :param pic_path: 图片路径
+        :param uid: 目标QQ号
+        :param msg: 补充消息
+        :return: 将消息写为cq码发送信息通过http协议传递给go-cphttp
+        """
         try:
             message = CQTools.cq_image_str(pic_path)
             if msg != "":

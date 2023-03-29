@@ -1,20 +1,25 @@
-""" doc """
-from .OtherTools import OtherTools
-from .SessionTools import SessionTools
+""" GPT信息传递类方法集合 """
+import tiktoken
 from GPTTools.GPTTalker import GPTTalker
+from Config import CONFIG
 
 
 class ChatMessageTools(object):
-    """ doc """
-    with open("test_resource/_key.txt", "r") as f:
-        key = [f.read()]
-    talker = GPTTalker(key, "gpt-3.5-turbo")
+    """ 与GPT信息传递有关的类 """
+    key = CONFIG["openai"]["api_key"]
+    talker = GPTTalker(key, CONFIG["chatgpt"]["model"])
 
     @classmethod
     def chat_with_gpt(cls, message, session):
+        """
+        对发送消息进行判别和处理后调用GPTTalker类的talk_with_gpt接口函数
+        :param message: 将发送信息
+        :param session: 用户的session
+        :return: GPT回复的信息
+        """
         session['msg'].append({"role": "user", "content": message})
         # 检查是否超过tokens限制
-        while SessionTools.num_tokens_from_messages(session['msg']) > 3000:
+        while cls.num_tokens_from_messages(session['msg']) > 3000:
             # 当超过记忆保存最大量时，清理一条
             del session['msg'][2:3]
         # 与ChatGPT交互获得对话内容
@@ -26,5 +31,30 @@ class ChatMessageTools(object):
         print("ChatGPT返回内容: ")
         print(message)
         #'''
-        #print(session['msg'])
+        # print(session['msg'])
         return message
+
+    @staticmethod
+    def num_tokens_from_messages(messages, model="gpt-3.5-turbo"):
+        """
+        根据使用的模型，计算一组信息的token量
+        :param messages: 待计算信息
+        :param model: 使用的模型
+        :return: 信息的token量
+        """
+        try:
+            encoding = tiktoken.encoding_for_model(model)
+        except KeyError:
+            encoding = tiktoken.get_encoding("cl100k_base")
+        if model == "gpt-3.5-turbo":
+            num_tokens = 0
+            for message in messages:
+                num_tokens += 4
+                for key, value in message.items():
+                    num_tokens += len(encoding.encode(value))
+                    if key == "name":  # 如果name字段存在，role字段会被忽略
+                        num_tokens += -1  # role字段是必填项，并且占用1token
+            num_tokens += 2
+            return num_tokens
+        else:
+            raise NotImplementedError(f"""当前模型不支持tokens计算: {model}.""")
