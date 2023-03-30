@@ -114,9 +114,7 @@ class InformationSender(object):
                 pic_path = cls.gen_img(message)
                 message = CQTools.cq_image_str(pic_path)
             if not send_voice and uid is not None:
-                message = str('[CQ:reply,id=%d]\n' % message_id) + \
-                          str('[CQ:at,qq=%s]\n' % uid) + \
-                          message  # @发言人
+                message = str('[CQ:reply,id={0},qq={1}]'.format(message_id, uid)) + message  # @发言人
             res = requests.post(url=cls.cqhttp_url + "/send_group_msg",
                                 params={'group_id': int(gid), 'message': message}).json()
             if res["status"] == "ok":
@@ -143,8 +141,7 @@ class InformationSender(object):
             message = CQTools.cq_image_str(pic_path)
             if msg != "":
                 message = msg + '\n' + message
-            message = str('[CQ:reply,id=%d]' % message_id) + \
-                      message  # @发言人
+            message = str('[CQ:reply,id={0},qq={1}]'.format(message_id, uid)) + message  # @发言人
             res = requests.post(url=cls.cqhttp_url + "/send_group_msg",
                                 params={'group_id': int(gid), 'message': message}).json()
             if res["status"] == "ok":

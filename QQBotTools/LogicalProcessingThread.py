@@ -16,7 +16,7 @@ class LogicalProcessingThread(object):
         self.message_queue = message_queue
         self.processing_tool = processing_tool(self.session_tool)
         self.running = True
-        if CONFIG["qq_bot"]["random_push"]:
+        if CONFIG["random_push"]["on"]:
             schedule.every(
                 CONFIG["random_push"]["random_request_interval"]
             ).seconds. \
@@ -26,7 +26,9 @@ class LogicalProcessingThread(object):
         message = self.message_queue.pop(0)
         session = self.get_session_from_message(message)
         if session is not None:
-            print(self.processing_tool.processing(message))
+            return self.processing_tool.processing(message)
+        else:
+            return ""
 
     def get_session_from_message(self, message):
         message_type = message.get('message_type')
@@ -43,10 +45,12 @@ class LogicalProcessingThread(object):
     def logic(self):
         schedule.run_pending()
         if len(self.message_queue) == 0:
-            time.sleep(0.1)
+            time.sleep(0.05)
             return
-        print("回复：")
-        self.process_message()
+        reply = self.process_message()
+        if reply != "":
+            print("回复：")
+            print(reply)
 
     def send_message_randomly(self, session):
         if time.time() - session["last"] >= CONFIG["random_push"]["wait_time"]:
@@ -65,10 +69,12 @@ class LogicalProcessingThread(object):
                 session_id = int(session_id.replace("G", ""))
                 if session_id in CONFIG["random_push"]["serve_groups_list"]:
                     self.send_message_randomly(self.session_tool.sessions[each_session])
+                    time.sleep(0.1)
             elif session_id[0] == "P":
                 session_id = int(session_id.replace("P", ""))
                 if session_id in CONFIG["random_push"]["serve_privates_list"]:
                     self.send_message_randomly(self.session_tool.sessions[each_session])
+                    time.sleep(0.1)
 
     def run_thread(self):
         while True:

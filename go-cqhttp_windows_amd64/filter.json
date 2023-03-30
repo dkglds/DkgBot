@@ -1,5 +1,15 @@
 {
-    "raw_message": {
-        ".regex": "^!!"
-    }
+    ".or": [
+        {
+            "message_type": "private"
+        },
+        {
+            "message_type": "group",
+            "group_id": {
+                ".in": [
+                    740690406, 945413523, 146954704
+                ]
+            }
+        }
+    ]
 }

@@ -68,7 +68,7 @@ class IntegratedInformationProcessingTool(object):
             else:
                 return_message = ""
             InformationSender.send_group_message(gid, return_message, self.uid, False, message_id)
-        elif CONFIG["qq_bot"]["random_response"]:
+        elif CONFIG["random_response"]["on"]:
             return_message = self.reply_message_randomly()
         return return_message
 
@@ -112,10 +112,8 @@ class IntegratedInformationProcessingTool(object):
         gid = self.message_json.get('group_id')
         message_id = self.message_json.get("message_id")
         return_message = ""
-        random_num = random.random()
-        print(random_num)
-        if random_num < CONFIG["random_response"]["reply_probability"] and \
-                gid in CONFIG["random_response"]["serve_groups_list"]:
+        if gid in CONFIG["random_response"]["serve_groups_list"] and \
+                random.random() < CONFIG["random_response"]["reply_probability"]:
             self.message = str(self.message).replace(str(CQ_AT % self.qq_no), '')
             session = self.session_tool.get_chat_session('G' + str(gid))
             if self.instruction_processing_tool.process_instruction(self.message_json) == Const.SUCCESS:

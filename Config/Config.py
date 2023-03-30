@@ -1,6 +1,6 @@
 """ 配置信息模块 """
 import json
-import Config.Const as Const
+from Config import Const
 import os
 
 # 读取配置信息
