@@ -360,3 +360,8 @@
 [2023-03-30 13:09:45] [FATAL]: open cache image db failed: The process cannot access the file because it is being used by another process. 
 [2023-03-30 13:22:16] [WARNING]: Protocol -> device lock is disable. http api may fail. 
 [2023-03-30 13:22:26] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 
+[2023-03-30 14:00:47] [FATAL]: open cache image db failed: The process cannot access the file because it is being used by another process. 
+[2023-03-30 14:01:26] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-30 14:01:36] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 
+[2023-03-30 14:01:48] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-30 14:01:58] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 
