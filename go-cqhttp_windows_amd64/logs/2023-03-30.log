@@ -355,3 +355,8 @@
  到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
 [2023-03-30 12:32:33] [WARNING]: 上报 Event 数据 {"post_type":"message","message_type":"group","time":1680150754,"self_id":1252536626,"sub_type":"normal","raw_message":"就能多条路","sender":{"age":0,"area":"","card":"","level":"","nickname":"ヱ","role":"admin","sex":"unknown","title":"","user_id":1298241138},"message_id":1041299477,"message":"就能多条路","font":0,"group_id":945413523,"message_seq":44512,"user_id":1298241138,"anonymous":null}
  到 http://127.0.0.1:5555/ 失败: Post "http://127.0.0.1:5555/": dial tcp 127.0.0.1:5555: connectex: No connection could be made because the target machine actively refused it. 停止上报：已达重试上限 
+[2023-03-30 13:09:18] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-30 13:09:28] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 
+[2023-03-30 13:09:45] [FATAL]: open cache image db failed: The process cannot access the file because it is being used by another process. 
+[2023-03-30 13:22:16] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-30 13:22:26] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 

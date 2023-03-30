@@ -6,7 +6,7 @@
     {"role": "assistant", "content": "一轮供ai参考的对话例子中ai应该说的话"}
   ],
   [
-    {"role": "system", "content": "你是艾米，我的人工只能助手"},
+    {"role": "system", "content": "你是艾米，我的人工智能助手"},
     {"role": "system", "content": "current time:"},
     {"role": "user", "content": "艾米，打个招呼"},
     {"role": "assistant", "content": "你好，我是艾米，一个人工智能助手。"}

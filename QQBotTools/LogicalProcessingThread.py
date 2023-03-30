@@ -57,24 +57,23 @@ class LogicalProcessingThread(object):
             if session["id"][0] == "G":
                 session["msg"] = session["msg"][0:4]
             current_time = get_bj_time().split(" ")[1].split(":")[0]
-            if int(current_time) >= 7 and random.random() < CONFIG["random_push"]["random_request_interval"]:
+            if int(current_time) >= 7 and random.random() < CONFIG["random_push"]["reply_probability"]:
                 message = self.processing_tool.send_new_log(session)
                 print("发出：")
                 print(message)
 
     def send_message_randomly_to_all(self):
+        #print(self.session_tool.sessions.keys())
         for each_session in self.session_tool.sessions:
             session_id = self.session_tool.sessions[each_session]["id"]
             if session_id[0] == "G":
                 session_id = int(session_id.replace("G", ""))
                 if session_id in CONFIG["random_push"]["serve_groups_list"]:
                     self.send_message_randomly(self.session_tool.sessions[each_session])
-                    time.sleep(1)
             elif session_id[0] == "P":
                 session_id = int(session_id.replace("P", ""))
                 if session_id in CONFIG["random_push"]["serve_privates_list"]:
                     self.send_message_randomly(self.session_tool.sessions[each_session])
-                    time.sleep(1)
 
     def run_thread(self):
         while True:

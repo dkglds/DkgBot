@@ -1,0 +1,15 @@
+{
+    ".or": [
+        {
+            "message_type": "private"
+        },
+        {
+            "message_type": "group",
+            "group_id": {
+                ".in": [
+                    群号1, 群号2, 群号3
+                ]
+            }
+        }
+    ]
+}

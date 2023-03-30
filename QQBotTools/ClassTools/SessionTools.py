@@ -46,7 +46,6 @@ class SessionTools(object):
                 config = deepcopy(self.session_group_config)
             else:
                 config = deepcopy(self.session_private_config)
-            config['last'] = time.time()
             config['id'] = session_id
             self.sessions[session_id] = config
         return self.sessions[session_id]
