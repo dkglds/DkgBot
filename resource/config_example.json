@@ -28,7 +28,7 @@
         "voice_path": "存放生成的音频文件的路径，填绝对路径",
         "voice": "zh-CN-XiaoyiNeural",
         "auto_confirm": false,
-        "admin_qq": ["管理员账号1", "管理员账号2"],
+        "admin_qq": [管理员账号1, 管理员账号2],
         "random_response": true,
         "random_push": true
     },

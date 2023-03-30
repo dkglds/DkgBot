@@ -365,3 +365,6 @@
 [2023-03-30 14:01:36] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 
 [2023-03-30 14:01:48] [WARNING]: Protocol -> device lock is disable. http api may fail. 
 [2023-03-30 14:01:58] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 
+[2023-03-30 14:21:33] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2023-03-30 14:21:43] [WARNING]: 警告: 心跳功能已关闭，若非预期，请检查配置文件。 
+[2023-03-30 16:09:11] [ERROR]: Protocol -> unexpected disconnect: read tcp 192.168.1.108:58191->112.80.130.129:8080: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. 

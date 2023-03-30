@@ -5,6 +5,8 @@ from QQBotTools.FunctionTools.OtherTools import read_partial_information
 from Config.Roles import ROLES
 from QQBotTools.FunctionTools.OtherTools import get_credit_summary_by_index
 
+CQ_AT = "[CQ:at,qq=%s]"
+
 
 class InstructionProcessingTool(object):
     """ 指令处理类，可以通过继承重写process_instruction方法实现自定义指令 """
@@ -20,6 +22,7 @@ class InstructionProcessingTool(object):
         self.message = None
         self.message_type = None
         self.return_str = ""
+        self.qq_no = CONFIG["qq_bot"]["qq_no"]
 
     def process_instruction(self, message_json):
         """
@@ -32,13 +35,14 @@ class InstructionProcessingTool(object):
         read_partial_information(self, message_json)
         self.message = message_json.get('raw_message')
         self.uid = message_json.get('sender').get('user_id')
+        self.message = str(self.message).replace(str(CQ_AT % self.qq_no), '')
         if "#" == self.message.strip()[0]:
-            message = self.message.replace("#", "", 1)
+            message = self.message.replace("#", "", 1).strip()
             if hasattr(self, message.split("(")[0]):
                 if self.message_type == "group" and self.uid not in self.admin_list:
                     self.return_str = "权限不足！"
                     return Const.SUCCESS
-                #exec("self." + message)
+                # exec("self." + message)
                 try:
                     if message[-1] != ")":
                         message += "()"
@@ -96,7 +100,7 @@ class InstructionProcessingTool(object):
         text = ""
         for i in range(len(CONFIG['openai']['api_key'])):
             text = text + "Key_" + str(i + 1) + " 余额: " + str(round(get_credit_summary_by_index(i), 2)) + "美元\n"
-        self.return_str = text[0:len(text)-1]
+        self.return_str = text[0:len(text) - 1]
         return Const.SUCCESS
 
     def help(self):
