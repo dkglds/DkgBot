@@ -12,7 +12,8 @@
         "presence_penalty": 0,
         "frequency_penalty": 0,
         "roles": "resource/roles.json",
-        "preset": 1
+        "private_preset": 私聊预设人格值,
+        "group_preset": 群聊预设人格值
     },
     "new_bing": {
         "cookie_path": "cookies.json",
@@ -27,9 +28,28 @@
         "voice_path": "存放生成的音频文件的路径，填绝对路径",
         "voice": "zh-CN-XiaoyiNeural",
         "auto_confirm": false,
-        "admin_qq": ["管理员账号"],
-        "serve_groups": ["支持的群号1", "支持的群号2", "支持的群号3"]
+        "admin_qq": ["管理员账号1", "管理员账号2"],
+        "random_response": true,
+        "random_push": true
     },
+    "chat_in_qq": {
+        "serve_privates_list": [支持聊天的qq号1, 支持聊天的qq号2],
+        "serve_groups_list": [支持聊天的qq群号1, 支持聊天的qq群号2]
+    },
+    "random_push": {
+        "on": true,
+        "serve_privates_list": [支持推送的qq号1, 支持推送的qq号2],
+        "serve_groups_list": [支持推送的qq群号1, 支持推送的qq群号2],
+        "wait_time": 600,
+        "random_request_interval": 10,
+        "reply_probability": 0.003
+    },
+    "random_response": {
+        "on": true,
+        "serve_groups_list": [支持随机回复的qq群号1, 支持随机回复的qq群号2],
+        "reply_probability": 0.1
+    },
+
     "text_to_image": {
         "font_size": 30,
         "width": 700,

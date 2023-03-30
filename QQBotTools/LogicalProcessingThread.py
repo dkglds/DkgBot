@@ -69,12 +69,12 @@ class LogicalProcessingThread(object):
                 session_id = int(session_id.replace("G", ""))
                 if session_id in CONFIG["random_push"]["serve_groups_list"]:
                     self.send_message_randomly(self.session_tool.sessions[each_session])
-                    time.sleep(0.1)
+                    time.sleep(1)
             elif session_id[0] == "P":
                 session_id = int(session_id.replace("P", ""))
                 if session_id in CONFIG["random_push"]["serve_privates_list"]:
                     self.send_message_randomly(self.session_tool.sessions[each_session])
-                    time.sleep(0.1)
+                    time.sleep(1)
 
     def run_thread(self):
         while True:
