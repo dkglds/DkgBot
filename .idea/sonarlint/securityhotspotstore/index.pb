@@ -1,8 +1,6 @@
 
 =
 _question.txt,3\5\35886b5abb4eb0511eecc95a93141ccf8a093141
-I
-test_resource/_QQInfo.txt,7\b\7bf30ee769f2a12cf6369d4ee59029473105b246
 F
 QQBotTools/__init__.py,9\d\9d64460e6cdd7d1e51900e5f79176030523683e3
 R
@@ -11,7 +9,40 @@ R
 "go-cqhttp_windows_amd64/.gitignore,9\9\999f528e8ce3ae072fe4f42e4838b75d2197ce22
 S
 #GPTTools/MyOpenAi/ChatCompletion.py,a\c\ac8345bc222b2141e3e9fd8bd58f2c1ebf2cba5c
-8
-__init__,1\9\1939f247b3ae06244a8d50fa7dabbcc975c6fc4c
 D
 resource/config.json,a\7\a77c330015113ca626261c0ec8ba619bea4a2a46
+T
+$QQBotTools/FunctionTools/__init__.py,5\1\51018ce26553c5afe2c58a4bbeda8592d83b18cc
+D
+GPTTools/__init__.py,2\3\23536786e15085236017567ad9fa3d4dc4ed67a1
+;
+__init__.py,6\0\60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+E
+resource/cookies.json,7\4\74c8b408fb712aeb77a967a74d549651847525a0
+Q
+!QQBotTools/ClassTools/__init__.py,e\e\ee10dd4cbeae87870187fbf3d93f984df811ec60
+7
+main.py,f\1\f1bdda93d9a278e358509d498e17d97764c1fb29
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+9
+	Server.py,e\f\efe1bc9b123e7069813279dcf4478cc94e7b07ab
+U
+%ExternalModuleAndResource/__init__.py,6\7\6770568ac961e7653a89bec62a82d7bc3b92f67c
+F
+OtherTools/__init__.py,4\6\46d2a09598205918ec63232307055b17684eb79e
+B
+Config/__init__.py,4\7\4729b5ab554b089cd0baa069ff64b17c14781561
+]
+-ExternalModuleAndResource/stable_diffusion.py,3\0\305c855300a00d6ec342ccbab1ec132e1ce7b8ad
+Z
+*ExternalModuleAndResource/text_to_image.py,7\4\74ede79304b921ef332d2b3ce92d6df6c633614b
+[
++ExternalModuleAndResource/text_to_speech.py,e\e\ee43246e4ac308060d90b4003cf275ef08e115be
+E
+GPTTools/GPTTalker.py,9\c\9c869b8a23e35398db56f7810b637078d35acabc
+C
+resource/roles.json,3\f\3fbd9c1030ae9c2d635065d9cd7971afc6595d9a

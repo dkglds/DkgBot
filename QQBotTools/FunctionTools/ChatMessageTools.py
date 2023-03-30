@@ -1,4 +1,6 @@
 """ GPT信息传递类方法集合 """
+import time
+
 import tiktoken
 from GPTTools.GPTTalker import GPTTalker
 from Config.Config import CONFIG
@@ -29,6 +31,7 @@ class ChatMessageTools(object):
         message = cls.talker.return_str
         # 记录上下文
         session['msg'].append({"role": "assistant", "content": message})
+        session["last"] = time.time()
         '''
         print("ChatGPT返回内容: ")
         print(message)
@@ -39,18 +42,19 @@ class ChatMessageTools(object):
     @classmethod
     def chat_with_gpt_by_new_log(cls, session):
         """
-        清空消息记忆并且发起一个新话题
+        发起一个新话题
         :param session: 用户的session
         :return: GPT回复的信息
         """
         session['msg'][1] = {"role": "user", "content": "current time:" + get_bj_time()}
-        session['msg'] = session["msg"][0:4]
-        session["msg"].append({"role": "system", "content": "随便说点"})
+        messages = session["msg"][0:4]
+        messages.append({"role": "system", "content": "随便说点"})
         # 与ChatGPT交互获得对话内容
-        cls.talker.talk_with_gpt(session["msg"])
+        cls.talker.talk_with_gpt(messages)
         message = cls.talker.return_str
         # 记录上下文
         session['msg'].append({"role": "assistant", "content": message})
+        session["last"] = time.time()
         # print(session['msg'])
         return message
 

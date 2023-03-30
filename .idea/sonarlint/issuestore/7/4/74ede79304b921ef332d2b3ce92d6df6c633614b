@@ -1,0 +1,7 @@
+
+upython:S134…"]Refactor this code to not nest more than 4 "if", "for", "while", "try" and "with" statements.(¥¤„
+zpython:S134"]Refactor this code to not nest more than 4 "if", "for", "while", "try" and "with" statements.(¨ã‡—øÿÿÿÿ
+6python:S1720"Add a docstring to this class.(–è©ü
+ipython:FunctionComplexity0"DFunction has a complexity of 30 which is greater than 15 authorized.(’êÿ”
+lpython:S37760"TRefactor this function to reduce its Cognitive Complexity from 58 to the 15 allowed.(’êÿ”
+Hpython:S1721¡"/Remove the parentheses after this "if" keyword.(ú¥Ğß

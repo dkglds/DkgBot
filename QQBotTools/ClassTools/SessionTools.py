@@ -17,12 +17,19 @@ class SessionTools(object):
             sessions = dict()
         self.sessions = sessions
         # session格式模板
-        self.session_config = dict()
+        self.session_private_config = dict()
+        self.session_group_config = dict()
 
     def reset_session_config(self):
-        self.session_config = {
-            'msg': ROLES[CONFIG["chatgpt"]["preset"]],
-            'role': CONFIG["chatgpt"]["preset"],
+        self.session_private_config = {
+            'msg': ROLES[CONFIG["chatgpt"]["private_preset"]],
+            'role': CONFIG["chatgpt"]["private_preset"],
+            'last': 0,
+            'id': "0"
+        }
+        self.session_group_config = {
+            'msg': ROLES[CONFIG["chatgpt"]["group_preset"]],
+            'role': CONFIG["chatgpt"]["group_preset"],
             'last': 0,
             'id': "0"
         }
@@ -35,7 +42,10 @@ class SessionTools(object):
         """
         if session_id not in self.sessions:
             self.reset_session_config()
-            config = deepcopy(self.session_config)
+            if session_id[0] == "G":
+                config = deepcopy(self.session_group_config)
+            else:
+                config = deepcopy(self.session_private_config)
             config['last'] = time.time()
             config['id'] = session_id
             self.sessions[session_id] = config

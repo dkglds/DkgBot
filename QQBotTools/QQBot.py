@@ -5,7 +5,7 @@ from threading import Thread
 from QQBotTools.IntegratedInformationProcessingTool import IntegratedInformationProcessingTool
 from QQBotTools.ClassTools.SessionTools import SessionTools
 from QQBotTools.LogicalProcessingThread import LogicalProcessingThread
-
+from Config.Config import CONFIG
 
 class QQBot(object):
     """ QQ机器人类 """
@@ -21,6 +21,7 @@ class QQBot(object):
         self.get_message_queue = list()
         self.send_message_queue = list()
         self.session_tool = SessionTools()
+        self._init_sessions()
         # 根据给定的综合信息处理类实例化一个对象
         self.logical_processing_tool = logical_processing_thread(
             self.session_tool,
@@ -29,6 +30,12 @@ class QQBot(object):
         )
         self.logical_processing_thread = Thread(target=self.logical_processing_tool.run_thread)
         self._active_thread()
+
+    def _init_sessions(self):
+        for each_private_id in CONFIG["random_push"]["serve_privates_list"]:
+            self.session_tool.get_chat_session("P" + str(each_private_id))
+        for each_group_id in CONFIG["random_push"]["serve_groups_list"]:
+            self.session_tool.get_chat_session("G" + str(each_group_id))
 
     def _active_thread(self):
         """
