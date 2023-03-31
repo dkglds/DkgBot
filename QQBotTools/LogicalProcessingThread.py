@@ -16,11 +16,11 @@ class LogicalProcessingThread(object):
         self.message_queue = message_queue
         self.processing_tool = processing_tool(self.session_tool)
         self.running = True
-        if CONFIG["random_push"]["on"]:
-            schedule.every(
-                CONFIG["random_push"]["random_request_interval"]
-            ).seconds. \
-                do(self.send_message_randomly_to_all)
+
+        schedule.every(
+            CONFIG["random_push"]["random_request_interval"]
+        ).seconds. \
+            do(self.send_message_randomly_to_all)
 
     def process_message(self):
         message = self.message_queue.pop(0)
@@ -56,11 +56,12 @@ class LogicalProcessingThread(object):
         if time.time() - session["last"] >= CONFIG["random_push"]["wait_time"]:
             if session["id"][0] == "G":
                 session["msg"] = session["msg"][0:4]
-            current_time = get_bj_time().split(" ")[1].split(":")[0]
-            if int(current_time) >= 7 and random.random() < CONFIG["random_push"]["reply_probability"]:
-                message = self.processing_tool.send_new_log(session)
-                print("发出：")
-                print(message)
+            if CONFIG["random_push"]["on"]:
+                current_time = get_bj_time().split(" ")[1].split(":")[0]
+                if int(current_time) >= 7 and random.random() < CONFIG["random_push"]["reply_probability"]:
+                    message = self.processing_tool.send_new_log(session)
+                    print("发出：")
+                    print(message)
 
     def send_message_randomly_to_all(self):
         #print(self.session_tool.sessions.keys())

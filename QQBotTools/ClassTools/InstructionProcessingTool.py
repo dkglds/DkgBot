@@ -1,4 +1,5 @@
 """ 指令处理类 """
+from copy import deepcopy
 from Config import Const
 from Config.Config import CONFIG
 from QQBotTools.FunctionTools.OtherTools import read_partial_information
@@ -70,7 +71,7 @@ class InstructionProcessingTool(object):
             self.return_str = "尚未设置处理此消息的功能"
             return Const.FAILING
         session = self.session_tool.get_chat_session(session_id)
-        session["msg"] = ROLES[int(session["role"])]
+        session["msg"] = deepcopy(ROLES[int(session["role"])])
         self.return_str = "会话已重置"
         return Const.SUCCESS
 
@@ -91,7 +92,7 @@ class InstructionProcessingTool(object):
             return Const.FAILING
         session = self.session_tool.get_chat_session(session_id)
         session["role"] = int(role_no)
-        session["msg"] = ROLES[session["role"]]
+        session["msg"] = deepcopy(ROLES[session["role"]])
         self.return_str = "已切换为人格" + str(role_no)
         return Const.SUCCESS
 
