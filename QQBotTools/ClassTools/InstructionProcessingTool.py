@@ -19,6 +19,7 @@ class InstructionProcessingTool(object):
         self.admin_list = CONFIG["qq_bot"]["admin_qq"]
         self.sender = None
         self.uid = None
+        self.gid = None
         self.message = None
         self.message_type = None
         self.return_str = ""
@@ -33,10 +34,12 @@ class InstructionProcessingTool(object):
         :return: 成功/失败
         """
         read_partial_information(self, message_json)
+        if self.message_type == 'group':
+            self.gid = message_json.get('group_id')
         self.message = message_json.get('raw_message')
         self.uid = message_json.get('sender').get('user_id')
         self.message = str(self.message).replace(str(CQ_AT % self.qq_no), '')
-        if "#" == self.message.strip()[0]:
+        if len(self.message.strip()) > 0 and "#" == self.message.strip()[0]:
             message = self.message.replace("#", "", 1).strip()
             if hasattr(self, message.split("(")[0]):
                 if self.message_type == "group" and self.uid not in self.admin_list:
@@ -60,7 +63,7 @@ class InstructionProcessingTool(object):
         :return: 是否处理成功
         """
         if self.message_type == 'group':
-            session_id = "G" + str(self.uid)
+            session_id = "G" + str(self.gid)
         elif self.message_type == 'private':
             session_id = "P" + str(self.uid)
         else:
@@ -80,7 +83,7 @@ class InstructionProcessingTool(object):
             self.return_str = "没有这个人格，请输入0~" + str(len(ROLES) - 1) + "间的数"
             return Const.FAILING
         if self.message_type == 'group':
-            session_id = "G" + str(self.uid)
+            session_id = "G" + str(self.gid)
         elif self.message_type == 'private':
             session_id = "P" + str(self.uid)
         else:
