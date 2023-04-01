@@ -48,8 +48,12 @@ def get_credit_summary_by_index(index):
     :param index: api编号:
     :return: 余额值
     """
-    url = "https://chat-gpt.aurorax.cloud/dashboard/billing/credit_grants"
+    #url = "https://chat-gpt.aurorax.cloud/dashboard/billing/credit_grants"
+    url = "https://api.openai.com/v1/dashboard/billing/credit_grants"
     res = requests.get(url, headers={
         "Authorization": f"Bearer " + CONFIG['openai']['api_key'][index]
-    }, timeout=60).json()
+    }, timeout=60)
+
+    res = res.json()
+    print(res)
     return res['total_available']

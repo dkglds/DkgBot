@@ -23,10 +23,6 @@ B
 Config/__init__.py,4\7\4729b5ab554b089cd0baa069ff64b17c14781561
 C
 resource/roles.json,3\f\3fbd9c1030ae9c2d635065d9cd7971afc6595d9a
-S
-#QQBotTools/FunctionTools/CQTools.py,2\4\24e9afed598e7f5a5c08dda8f8281c86ea9f9984
-V
-&QQBotTools/FunctionTools/OtherTools.py,9\a\9a1f4c1138eac8ea11a08d256fd277c2e1663266
 ?
 Config/Roles.py,7\7\779b4d436a62420f4407cd6cbdbd91662c224592
 7
@@ -57,3 +53,8 @@ L
 resource/config_example.json,e\0\e0db5f010a5f8a625b7184076d1597328e184bb2
 7
 test.py,a\3\a36e355ddb203d7d4133221f339dc406cb9f480f
+C
+QQBotTools/QQBot.py,2\b\2be25cb6ff657753005918ef5169bda9f2c666a8
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
