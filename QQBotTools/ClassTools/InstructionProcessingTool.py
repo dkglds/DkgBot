@@ -1,4 +1,5 @@
 """ 指令处理类 """
+import time
 from copy import deepcopy
 from Config import Const
 from Config.Config import CONFIG
@@ -103,11 +104,12 @@ class InstructionProcessingTool(object):
 		"""
 		text = ""
 		for i in range(len(CONFIG['openai']['api_key'])):
-			while True:
+			for j in range(5):
 				try:
-					text = text + "Key_" + str(i + 1) + " 余额: " + str(round(get_credit_summary_by_index(i), 2)) + "美元\n"
+					text = text + "Key_" + str(i + 1) + " 100天内已使用: " + str(round(get_credit_summary_by_index(i), 2)) + "美元\n"
 					break
 				except KeyError:
+					time.sleep(1)
 					continue
 		self.return_str = text[0:len(text) - 1]
 		return Const.SUCCESS

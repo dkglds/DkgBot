@@ -53,8 +53,6 @@ L
 resource/config_example.json,e\0\e0db5f010a5f8a625b7184076d1597328e184bb2
 7
 test.py,a\3\a36e355ddb203d7d4133221f339dc406cb9f480f
-C
-QQBotTools/QQBot.py,2\b\2be25cb6ff657753005918ef5169bda9f2c666a8
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
