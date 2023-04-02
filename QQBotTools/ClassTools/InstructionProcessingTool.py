@@ -44,9 +44,6 @@ class InstructionProcessingTool(object):
 		if len(self.message.strip()) > 0 and "#" == self.message.strip()[0]:
 			message = self.message.replace("#", "", 1).strip()
 			if hasattr(self, message.split("(")[0]):
-				if self.message_type == "group" and self.uid not in self.admin_list:
-					self.return_str = "权限不足！"
-					return Const.SUCCESS
 				# exec("self." + message)
 				try:
 					if message[-1] != ")":
@@ -81,6 +78,9 @@ class InstructionProcessingTool(object):
 		切换人格
 		:return: 是否处理成功
 		"""
+		if self.message_type == "group" and self.uid not in self.admin_list:
+			self.return_str = "权限不足！"
+			return Const.FAILING
 		if role_no >= len(ROLES):
 			self.return_str = "没有这个人格，请输入0~" + str(len(ROLES) - 1) + "间的数"
 			return Const.FAILING
